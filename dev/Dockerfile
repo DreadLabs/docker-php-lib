@@ -1,4 +1,4 @@
-FROM dreadlabs/php-lib-base:7.0
+FROM dreadlabs/php-lib:7.0-base
 
 MAINTAINER Thomas Juhnke <dev@van-tomas.de>
 

@@ -11,29 +11,29 @@ NS = dreadlabs
 FILE = Dockerfile
 
 
-REPO = php-lib-$(CONTEXT)
-NAME = php-lib-$(CONTEXT)
+REPO = php-lib
+NAME = php-lib
 INSTANCE = default
 
 .PHONY: build shell release versions start stop rm
 
 build:
-	docker build --file $(CONTEXT)/$(FILE) -t $(NS)/$(REPO):$(VERSION) $(CONTEXT)
+	docker build --file $(CONTEXT)/$(FILE) -t $(NS)/$(REPO):$(VERSION)-$(CONTEXT) $(CONTEXT)
 
 push:
 	docker push $(NS)/$(REPO):$(VERSION)
 
 shell:
-	docker run --rm --name $(NAME)-$(INSTANCE) --interactive --tty $(NS)/$(REPO):$(VERSION) /bin/bash
+	docker run --rm --name $(NAME)-$(CONTEXT)-$(INSTANCE) --interactive --tty $(NS)/$(REPO):$(VERSION)-$(CONTEXT) /bin/bash
 
 start:
-	docker run -d --name $(NAME)-$(INSTANCE) $(NS)/$(REPO):$(VERSION)
+	docker run -d --name $(NAME)-$(CONTEXT)-$(INSTANCE) $(NS)/$(REPO):$(VERSION)-$(CONTEXT)
 
 stop:
-	docker stop $(NAME)-$(INSTANCE)
+	docker stop $(NAME)-$(CONTEXT)-$(INSTANCE)
 
 rm:
-	docker rm $(NAME)-$(INSTANCE)
+	docker rm $(NAME)-$(CONTEXT)-$(INSTANCE)
 
 release:
 	make push -e VERSION=$(VERSION)
