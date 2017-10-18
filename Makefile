@@ -21,7 +21,7 @@ build:
 	docker build --file $(CONTEXT)/$(FILE) -t $(NS)/$(REPO):$(VERSION)-$(CONTEXT) $(CONTEXT)
 
 push:
-	docker push $(NS)/$(REPO):$(VERSION)
+	docker push $(NS)/$(REPO):$(VERSION)-$(CONTEXT)
 
 shell:
 	docker run --rm --name $(NAME)-$(CONTEXT)-$(INSTANCE) --interactive --tty $(NS)/$(REPO):$(VERSION)-$(CONTEXT) /bin/bash
@@ -36,7 +36,7 @@ rm:
 	docker rm $(NAME)-$(CONTEXT)-$(INSTANCE)
 
 release:
-	make push -e VERSION=$(VERSION)
+	make push -e VERSION=$(VERSION) CONTEXT=$(CONTEXT)
 
 versions:
 	docker images | grep $(NS)/$(REPO)
