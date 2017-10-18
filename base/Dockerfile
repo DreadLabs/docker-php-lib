@@ -9,4 +9,3 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 ADD rootfs/ /
 
 CMD ["php", "--version"]
-

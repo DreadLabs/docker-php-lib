@@ -6,4 +6,3 @@ if [ -z "$SUEXEC_USER" ]; then
 fi
 
 mkdir -p -m 0770 /var/cache/composer && chown "$SUEXEC_USER":"$SUEXEC_USER" /var/cache/composer
-
