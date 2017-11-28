@@ -16,6 +16,8 @@ ADD rootfs/ /
 RUN /usr/local/bin/install-composer.sh \
     && rm /usr/local/bin/install-composer.sh \
     && /usr/local/bin/install-deptrac.sh \
-    && rm /usr/local/bin/install-deptrac.sh
+    && rm /usr/local/bin/install-deptrac.sh \
+    && /usr/local/bin/install-qa-tools.sh \
+    && rm /usr/local/bin/install-qa-tools.sh
 
 CMD ["composer", "--version"]
