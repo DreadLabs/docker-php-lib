@@ -26,8 +26,11 @@ PHP **commandline-only** images with some pre-installed extensions for PHP libra
 ### Flavours
 
   - `base`: base image for general usage
-  - `dev`: development image with `composer`, `xdebug`/`phpdbg` and `php-dbg`, a custom
-    command line wrapper for debugging in PhpStorm
+  - `dev`: development image with development tools:
+     * `composer`
+     * `xdebug`/`phpdbg`
+     * `php-dbg`, custom command line wrapper for debugging in PhpStorm
+     * [`deptrac`](https://github.com/sensiolabs-de/deptrac)
 
 ## Makefile
 
