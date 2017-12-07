@@ -32,6 +32,6 @@ install_qa_tools__install   http://static.phpmd.org/php/2.6.0/phpmd.phar \
 install_qa_tools__install   https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
                             /usr/local/bin/phpcs
 install_qa_tools__install   https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar \
-                            /usr/local/bin/phpcs
+                            /usr/local/bin/phpcbf
 install_qa_tools__install   https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.8.3/php-cs-fixer.phar \
                             /usr/local/bin/php-cs-fixer
