@@ -10,6 +10,7 @@ PHP **commandline-only** images with some pre-installed extensions for PHP libra
   * bcmath
   * cli
   * curl
+  * dom
   * gd
   * gmagick
   * gmp
