@@ -1,12 +1,12 @@
 #
-# Makefile for dreadlabs/php-lib-*
+# Makefile for dreadlabs/php-lib
 #
 # @see http://www.itnotes.de/docker/development/tools/2014/08/31/speed-up-your-docker-workflow-with-a-makefile/
 # @see http://stackoverflow.com/a/10858332
 #
 
-VERSION ?= latest
-CONTEXT ?= base
+CONTEXT = .
+FLAVOUR ?= base
 NS = dreadlabs
 FILE = Dockerfile
 
@@ -15,30 +15,38 @@ REPO = php-lib
 NAME = php-lib
 INSTANCE = default
 
-.PHONY: build shell release versions start stop rm
+.PHONY: build shell release versions start stop rm check-env
 
-build:
-	docker build --file $(CONTEXT)/$(FILE) -t $(NS)/$(REPO):$(VERSION)-$(CONTEXT) $(CONTEXT)
+check-env:
+ifndef VERSION
+	$(error VERSION is undefined)
+endif
 
-push:
-	docker push $(NS)/$(REPO):$(VERSION)-$(CONTEXT)
+build: check-env
+	docker build --file $(VERSION)/$(FLAVOUR)/$(FILE) -t $(NS)/$(REPO):$(VERSION)-$(FLAVOUR) $(CONTEXT)/$(VERSION)/$(FLAVOUR)
 
-shell:
-	docker run --rm --name $(NAME)-$(CONTEXT)-$(INSTANCE) --interactive --tty $(NS)/$(REPO):$(VERSION)-$(CONTEXT) /bin/bash
+push: check-env
+	docker push $(NS)/$(REPO):$(VERSION)-$(FLAVOUR)
 
-start:
-	docker run -d --name $(NAME)-$(CONTEXT)-$(INSTANCE) $(NS)/$(REPO):$(VERSION)-$(CONTEXT)
+shell: check-env
+	docker run --rm --name $(NAME)-$(FLAVOUR)-$(INSTANCE) --interactive --tty $(NS)/$(REPO):$(VERSION)-$(FLAVOUR) /bin/bash
+
+start: check-env
+	docker run -d --name $(NAME)-$(FLAVOUR)-$(INSTANCE) $(NS)/$(REPO):$(VERSION)-$(FLAVOUR)
 
 stop:
-	docker stop $(NAME)-$(CONTEXT)-$(INSTANCE)
+	docker stop $(NAME)-$(FLAVOUR)-$(INSTANCE)
 
 rm:
-	docker rm $(NAME)-$(CONTEXT)-$(INSTANCE)
+	docker rm $(NAME)-$(FLAVOUR)-$(INSTANCE)
 
-release:
-	make push -e VERSION=$(VERSION) CONTEXT=$(CONTEXT)
+release: check-env
+	make push -e VERSION=$(VERSION) FLAVOUR=$(FLAVOUR)
 
 versions:
 	docker images | grep $(NS)/$(REPO)
+
+versions-avail:
+	@ls -d1 */
 
 default: build

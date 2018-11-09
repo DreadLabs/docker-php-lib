@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export XDEBUG_CONFIG="profiler_enable=1 profiler_output_dir=/tmp"
+
+php "$@"
