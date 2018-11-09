@@ -34,7 +34,7 @@ install_tools__install   https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar 
                             /usr/local/bin/phpcs
 install_tools__install   https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar \
                             /usr/local/bin/phpcbf
-install_tools__install   https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.8.3/php-cs-fixer.phar \
+install_tools__install   https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.13.1/php-cs-fixer.phar \
                             /usr/local/bin/php-cs-fixer
 
 # A nice REPL, @see http://psysh.org/
