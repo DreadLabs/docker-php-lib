@@ -38,7 +38,7 @@ install_tools__install   https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/d
                             /usr/local/bin/php-cs-fixer
 
 # A nice REPL, @see http://psysh.org/
-install_tools__install   https://github.com/bobthecow/psysh/releases/download/v0.8.15/psysh-v0.8.15.tar.gz \
+install_tools__install   https://github.com/bobthecow/psysh/releases/download/v0.9.9/psysh-v0.9.9.tar.gz \
                             /usr/local/bin/psysh.tar.gz
 {
     cd /usr/local/bin;
