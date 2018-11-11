@@ -46,14 +46,3 @@ install_tools__install   https://github.com/bobthecow/psysh/releases/download/v0
     rm -f psysh.tar.gz;
     chmod +x /usr/local/bin/psysh;
 }
-
-
-install_tools__install   https://github.com/tcnksm/license/releases/download/0.1.1/license_0.1.1_linux_amd64.zip \
-                            /usr/local/bin/license.zip
-
-{
-    cd /usr/local/bin;
-    unzip license.zip;
-    rm -f license.zip;
-    chmod +x /usr/local/bin/license;
-}
