@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export XDEBUG_CONFIG="remote_enable=1 remote_mode=req remote_port=9000 remote_host=docker.for.mac.localhost remote_connect_back=0"
+
+php "$@"

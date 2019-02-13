@@ -9,14 +9,14 @@ PHP **commandline-only** images with some pre-installed extensions for PHP libra
   * ast
   * bcmath
   * curl
-  * dom
+  * dom (**included** by xml in 7.3)
   * gd
   * gmagick
   * gmp
-  * mcrypt
+  * mcrypt (**not** in 7.3)
   * soap
   * xml
-  * xsl
+  * xsl (**included** by xml in 7.3)
   * zip
 
 ### Flavours
